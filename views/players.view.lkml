@@ -16,7 +16,7 @@ view: players {
   }
   dimension: NextBirthday {
     type: number
-    sql: DATEDIFF(day,current_date, ${TABLE}."BIRTH") ;;
+    sql: DATEDIFF(day,current_date, ${birth_date}) ;;
   }
   dimension: club {
     type: string
@@ -32,7 +32,13 @@ view: players {
   }
   dimension: height_is_higher_than_175 {
     type: yesno
-    sql: ${TABLE}."HEIGHT" > 175 ;;
+    sql: ${height} > 175 ;;
+  }
+  dimension: Height_group{
+    type: tier
+    tiers: [160,170,180,190,200,210]
+    sql: ${height} ;;
+    style: integer
   }
   dimension: position_and_name {
     type: string

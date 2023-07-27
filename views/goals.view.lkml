@@ -10,6 +10,11 @@ view: goals {
   dimension: goal_time {
     type: string
     sql: ${TABLE}."GOAL_TIME" ;;
+
+  }
+  dimension: goal_time_group {
+    type: yesno
+    sql: ${goal_time} like "前半%" or ${goal_time} like "延前%" ;;
   }
   dimension: pairing_id {
     type: string
@@ -25,4 +30,23 @@ view: goals {
     type: count
     drill_fields: [id, players.id, players.name, pairings.id]
   }
+  measure: goal_players_count {
+    type: count_distinct
+    sql: ${player_id};;
+  }
+  measure: count_goals_time_before {
+    type: count
+    filters: {
+      field: goal_time_group
+      value: "yes"
+    }
+  }
+  measure: count_goals_time_after {
+    type: count
+    filters: {
+      field: goal_time_group
+      value: "no"
+    }
+  }
+
 }

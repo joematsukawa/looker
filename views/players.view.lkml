@@ -30,6 +30,10 @@ view: players {
     type: number
     sql: ${TABLE}."HEIGHT" ;;
   }
+  dimension: height_is_higher_than_175 {
+    type: yesno
+    sql: ${TABLE}."HEIGHT" > 175 ;;
+  }
   dimension: position_and_name {
     type: string
     sql: ${TABLE}."POSITION" || "," || ${TABLE}."NAME"  ;;

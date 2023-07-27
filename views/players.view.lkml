@@ -26,14 +26,18 @@ view: players {
     type: number
     sql: ${TABLE}."HEIGHT" ;;
   }
-  dimension: name {
+  dimension: position_and_name {
     type: string
-    sql: ${TABLE}."NAME" ;;
+    sql: ${TABLE}."POSITION" || "," || ${TABLE}."NAME"  ;;
   }
-  dimension: position {
-    type: string
-    sql: ${TABLE}."POSITION" ;;
-  }
+  # dimension: name {
+  #   type: string
+  #   sql: ${TABLE}."NAME" ;;
+  # }
+  # dimension: position {
+  #   type: string
+  #   sql: ${TABLE}."POSITION" ;;
+  # }
   dimension: uniform_num {
     type: number
     sql: ${TABLE}."UNIFORM_NUM" ;;
@@ -44,6 +48,6 @@ view: players {
   }
   measure: count {
     type: count
-    drill_fields: [id, name, goals.count]
+    drill_fields: [id, position_and_name, goals.count]
   }
 }

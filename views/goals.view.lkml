@@ -10,7 +10,15 @@ view: goals {
   dimension: goal_time {
     type: string
     sql: ${TABLE}."GOAL_TIME" ;;
-
+    }
+  dimension: goal_time_number {
+    type: number
+    sql: case
+          when ${goal_time} like "前半_分" then cast(substr(${goal_time},3,1) as number)
+          when ${goal_time} like "前半%分" then cast(substr(${goal_time},3,2) as number)
+          when ${goal_time} like "後半_分" then cast(substr(${goal_time},3,1) as number) + 45
+          when ${goal_time} like "後半%分" then cast(substr(${goal_time},3,2) as number) + 45
+        end;;
   }
   dimension: goal_time_group {
     type: yesno
@@ -47,6 +55,10 @@ view: goals {
       field: goal_time_group
       value: "no"
     }
+  }
+  measure: ave_goal_time {
+    type: average
+    sql: ${goal_time_number} ;;
   }
 
 }

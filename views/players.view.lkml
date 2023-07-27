@@ -14,6 +14,10 @@ view: players {
     datatype: date
     sql: ${TABLE}."BIRTH" ;;
   }
+  dimension: NextBirthday {
+    type: number
+    sql: DATEDIFF(day,current_date, ${TABLE}."BIRTH") ;;
+  }
   dimension: club {
     type: string
     sql: ${TABLE}."CLUB" ;;

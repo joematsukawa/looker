@@ -1,11 +1,7 @@
 # connection: "snowflake_traning"
 
-# include: "/views/**/*.view.lkml"
-
-# explore: test2{}
-
 view: test1 {
-  sql_table_name: "スキーマ名"."テーブル名" ;;
+  sql_table_name: "TRAINING_SOCCER"."COUNTRIES" ;;
 }
 
 view: test2 {

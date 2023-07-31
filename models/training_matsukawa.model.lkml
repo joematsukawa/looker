@@ -12,8 +12,6 @@ persist_with: training_matsukawa_default_datagroup
 
 explore: countries {}
 
-# explore: test {}
-
 explore: goals {
   join: players {
     type: left_outer
@@ -31,3 +29,5 @@ explore: goals {
 explore: pairings {}
 
 explore: players {}
+
+# explore: test1 {}

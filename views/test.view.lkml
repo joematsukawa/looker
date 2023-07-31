@@ -60,18 +60,8 @@ view: dimension_test {
     type: number
     sql: timestampdiff(year,${birth_date},current_date());;
   }
+  dimension: height_higher_175 {
+    type: yesno
+    sql: ${TABLE}."HEIGHT" > 175 ;;
+  }
 }
-#   dimension: Height_group{
-#     type: tier
-#     tiers: [160,170,180,190,200,210]
-#     sql: ${height} ;;
-#     style: integer
-#   }
-#   dimension: NextBirthday {
-#     type: number
-#     sql: DATEDIFF(day,current_date, ${birth_date}) ;;
-#   }
-#   dimension: height_is_higher_than_175 {
-#     type: yesno
-#     sql: ${height} > 175 ;;
-#   }

@@ -1,5 +1,3 @@
-# connection: "snowflake_traning"
-
 view: test1 {
   sql_table_name: "TRAINING_SOCCER"."COUNTRIES" ;;
 

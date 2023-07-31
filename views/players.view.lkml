@@ -82,7 +82,24 @@ view: players {
     sql: ${weight} / power(${height}/100,2);;
     filters: [club: "アーセナル"]
   }
-  parameter: parameter_countries {
+}
+
+view: view_explanation {
+  derived_table: {
+    sql:
+      SELECT
+        *
+      FROM
+        "TRAINING_SOCCER"."COUNTRIES"
+      WHERE
+        club = {% parameter parameter_club %}
+    ;;
+  }
+  dimension: club {
+    type: string
+    sql: ${TABLE}."CLUB" ;;
+  }
+  parameter: parameter_club {
     label: "クラブ(フィルター用)"
     type: string
     suggest_dimension: club

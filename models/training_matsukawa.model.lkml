@@ -30,4 +30,8 @@ explore: pairings {}
 
 explore: players {}
 
-# explore: test1 {}
+explore: test1 {}
+
+explore: test2 {}
+
+explore: countries_inheritance {}

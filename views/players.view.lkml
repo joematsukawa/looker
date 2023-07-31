@@ -63,4 +63,8 @@ view: players {
     type: count
     drill_fields: [id, position,name, goals.count]
   }
+  measure: count_age {
+    type: count
+    drill_fields: [age]
+    }
 }

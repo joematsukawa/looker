@@ -12,15 +12,17 @@ persist_with: training_matsukawa_default_datagroup
 
 explore: countries {}
 
+# explore: test {}
+
 explore: goals {
   join: players {
-    type: left_outer 
+    type: left_outer
     sql_on: ${goals.player_id} = ${players.id} ;;
     relationship: many_to_one
   }
 
   join: pairings {
-    type: left_outer 
+    type: left_outer
     sql_on: ${goals.pairing_id} = ${pairings.id} ;;
     relationship: many_to_one
   }
@@ -29,4 +31,3 @@ explore: goals {
 explore: pairings {}
 
 explore: players {}
-

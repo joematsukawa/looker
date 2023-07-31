@@ -37,3 +37,5 @@ explore: test2 {}
 explore: countries_inheritance {}
 
 explore: view_explanation {}
+
+explore: view_explanation2 {}

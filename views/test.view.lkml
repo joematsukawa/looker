@@ -100,3 +100,61 @@ view: view_explanation {
     suggest_dimension: club
   }
 }
+view: view_explanation2 {
+  derived_table: {
+    sql:
+      SELECT
+        *
+      FROM
+        "TRAINING_SOCCER"."PLAYERS"
+      WHERE
+        {% condition filter_players %} view_explanation.name {% endcondition %}
+    ;;
+  }
+  dimension: id {
+    primary_key: yes
+    type: number
+    sql: ${TABLE}."ID" ;;
+  }
+  dimension_group: birth {
+    type: time
+    timeframes: [raw, date, week, month, quarter, year]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}."BIRTH" ;;
+  }
+  dimension: club {
+    type: string
+    sql: ${TABLE}."CLUB" ;;
+  }
+  dimension: country_id {
+    type: number
+    sql: ${TABLE}."COUNTRY_ID" ;;
+  }
+  dimension: height {
+    type: number
+    sql: ${TABLE}."HEIGHT" ;;
+  }
+  dimension: name {
+    type: string
+    sql: ${TABLE}."NAME" ;;
+  }
+  dimension: position {
+    type: string
+    sql: ${TABLE}."POSITION" ;;
+  }
+  dimension: uniform_num {
+    type: number
+    sql: ${TABLE}."UNIFORM_NUM" ;;
+  }
+  dimension: weight {
+    type: number
+    sql: ${TABLE}."WEIGHT" ;;
+  }
+  filter: filter_players {
+    label: "誕生日(フィルター用)"
+    type: date
+    suggest_explore: players
+    suggest_dimension: birth_date
+  }
+}

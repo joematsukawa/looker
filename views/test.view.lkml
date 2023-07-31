@@ -2,6 +2,12 @@
 
 view: test1 {
   sql_table_name: "TRAINING_SOCCER"."COUNTRIES" ;;
+
+  dimension: id {
+    primary_key: yes
+    type: number
+    sql: ${TABLE}."ID" ;;
+  }
 }
 
 view: test2 {
@@ -12,6 +18,11 @@ view: test2 {
       FROM
         "TRAINING_SOCCER"."COUNTRIES"
     ;;
+  }
+  dimension: id {
+    primary_key: yes
+    type: number
+    sql: ${TABLE}."ID" ;;
   }
 }
 

@@ -48,7 +48,7 @@ view: view_explanation {
       SELECT
         *
       FROM
-        "TRAINING_SOCCER"."COUNTRIES"
+        "TRAINING_SOCCER"."PLAYERS"
       WHERE
         club = {% parameter parameter_club %}
     ;;

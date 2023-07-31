@@ -6,6 +6,10 @@ view: test1 {
     type: number
     sql: ${TABLE}."ID" ;;
   }
+  measure: count {
+    type: count
+    drill_fields: [id]
+  }
 }
 
 view: test2 {
@@ -21,6 +25,10 @@ view: test2 {
     primary_key: yes
     type: number
     sql: ${TABLE}."ID" ;;
+  }
+  measure: count {
+    type: count
+    drill_fields: [id]
   }
 }
 

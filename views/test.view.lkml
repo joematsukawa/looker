@@ -108,7 +108,7 @@ view: view_explanation2 {
       FROM
         "TRAINING_SOCCER"."PLAYERS"
       WHERE
-        {% condition filter_players %} view_explanation2.birth {% endcondition %}
+        {% condition filter_birth %} view_explanation2.birth {% endcondition %}
     ;;
   }
   dimension: id {
@@ -151,7 +151,7 @@ view: view_explanation2 {
     type: number
     sql: ${TABLE}."WEIGHT" ;;
   }
-  filter: filter_players {
+  filter: filter_birth {
     label: "誕生日(フィルター用)"
     type: date
     suggest_explore: players

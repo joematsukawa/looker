@@ -58,7 +58,7 @@ view: dimension_test {
   }
   dimension: age {
     type: number
-    sql: timestampdiff(year,${birth_date},curdate());;
+    sql: timestampdiff(year,${birth_date},currentdate());;
   }
 }
 #   dimension: Height_group{

@@ -64,4 +64,9 @@ view: dimension_test {
     type: yesno
     sql: ${TABLE}."HEIGHT" > 175 ;;
   }
+  dimension: height_tier {
+    type:  tier
+    tiers: [160,170,180,190]
+    sql: ${TABLE}."HEIGHT" ;;
+  }
 }

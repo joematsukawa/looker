@@ -67,4 +67,14 @@ view: players {
     type: count
     drill_fields: [age]
     }
+  measure: avg_weight_arsenal {
+    type: average
+    sql: ${weight};;
+    filters: [club: "アーセナル"]
+  }
+  measure: avg_height_arsenal {
+    type: average
+    sql: ${height} ;;
+    filters: [club: "アーセナル"]
+  }
 }

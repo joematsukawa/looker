@@ -79,7 +79,7 @@ view: players {
   }
   measure: avg_bmi_arsenal {
     type: average
-    sql: ${weight} / ${height} ** 2;;
+    sql: ${weight} / power(${height},2);;
     filters: [club: "アーセナル"]
   }
 }

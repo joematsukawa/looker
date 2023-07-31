@@ -57,6 +57,10 @@ view: view_explanation {
     type: string
     sql: ${TABLE}."CLUB" ;;
   }
+  dimension: name {
+    type: string
+    sql: ${TABLE}."NAME" ;;
+  }
   parameter: parameter_club {
     label: "クラブ(フィルター用)"
     type: string

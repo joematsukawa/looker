@@ -60,6 +60,7 @@ view: view_explanation {
   parameter: parameter_club {
     label: "クラブ(フィルター用)"
     type: string
+    suggest_explore: players
     suggest_dimension: club
   }
 }

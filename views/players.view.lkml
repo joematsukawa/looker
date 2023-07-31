@@ -82,4 +82,9 @@ view: players {
     sql: ${weight} / power(${height}/100,2);;
     filters: [club: "アーセナル"]
   }
+  parameter: parameter_countries {
+    label: "クラブ(フィルター用)"
+    type: string
+    suggest_dimension: club
+  }
 }

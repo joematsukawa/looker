@@ -49,6 +49,17 @@ view: dimension_test {
     type: string
     sql: ${TABLE}."POSITION" || '-' || ${TABLE}."NAME" ;;
   }
+  dimension_group: birth {
+    type: time
+    timeframes: [raw, date, week, month, quarter, year]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}."BIRTH" ;;
+  }
+  dimension: age {
+    type: number
+    sql: timestampdiff(year,${birth_date},curdate());;
+  }
 }
 #   dimension: Height_group{
 #     type: tier

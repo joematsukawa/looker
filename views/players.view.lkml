@@ -42,6 +42,23 @@ view: players {
     type: number
     sql: ${TABLE}."WEIGHT" ;;
   }
+  dimension: position_and_name{
+    type: string
+    sql: ${position} || '-' || ${name} ;;
+  }
+  dimension: age {
+    type: number
+    sql: timestampdiff(year,${birth_date},current_date());;
+  }
+  dimension: height_higher_175 {
+    type: yesno
+    sql: ${height} > 175 ;;
+  }
+  dimension: height_tier {
+    type:  tier
+    tiers: [160,170,180,190]
+    sql: ${height} ;;
+  }
   measure: count {
     type: count
     drill_fields: [id, position,name, goals.count]

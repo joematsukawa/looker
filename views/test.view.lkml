@@ -108,7 +108,7 @@ view: view_explanation2 {
       FROM
         "TRAINING_SOCCER"."PLAYERS"
       WHERE
-        {% condition filter_players %} view_explanation.name {% endcondition %}
+        {% condition filter_players %} view_explanation2.birth {% endcondition %}
     ;;
   }
   dimension: id {

@@ -65,6 +65,6 @@ view: players {
   }
   measure: count_age {
     type: count_distinct
-    sql: ${age} ;;
+    sql: group by ${age} ;;
     }
 }

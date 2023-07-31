@@ -14,10 +14,6 @@ view: players {
     datatype: date
     sql: ${TABLE}."BIRTH" ;;
   }
-  dimension: NextBirthday {
-    type: number
-    sql: DATEDIFF(day,current_date, ${birth_date}) ;;
-  }
   dimension: club {
     type: string
     sql: ${TABLE}."CLUB" ;;
@@ -30,28 +26,14 @@ view: players {
     type: number
     sql: ${TABLE}."HEIGHT" ;;
   }
-  dimension: height_is_higher_than_175 {
-    type: yesno
-    sql: ${height} > 175 ;;
-  }
-  dimension: Height_group{
-    type: tier
-    tiers: [160,170,180,190,200,210]
-    sql: ${height} ;;
-    style: integer
-  }
-  dimension: position_and_name {
+  dimension: name {
     type: string
-    sql: ${TABLE}."POSITION" || "," || ${TABLE}."NAME"  ;;
+    sql: ${TABLE}."NAME" ;;
   }
-  # dimension: name {
-  #   type: string
-  #   sql: ${TABLE}."NAME" ;;
-  # }
-  # dimension: position {
-  #   type: string
-  #   sql: ${TABLE}."POSITION" ;;
-  # }
+  dimension: position {
+    type: string
+    sql: ${TABLE}."POSITION" ;;
+  }
   dimension: uniform_num {
     type: number
     sql: ${TABLE}."UNIFORM_NUM" ;;
@@ -62,6 +44,6 @@ view: players {
   }
   measure: count {
     type: count
-    drill_fields: [id, position_and_name, goals.count]
+    drill_fields: [id, position,name, goals.count]
   }
 }

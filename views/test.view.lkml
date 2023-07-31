@@ -42,3 +42,25 @@ view: countries_inheritance {
 
   # ※ここに定義をしていない項目も全て継承される
 }
+
+view: dimension_test {
+  sql_table_name: "TRAINING_SOCCER"."PLAYERS" ;;
+  dimension: position_and_name{
+    type: string
+    sql: ${TABLE}."POSITION" || '-' || ${TABLE}."NAME" ;;
+  }
+}
+#   dimension: Height_group{
+#     type: tier
+#     tiers: [160,170,180,190,200,210]
+#     sql: ${height} ;;
+#     style: integer
+#   }
+#   dimension: NextBirthday {
+#     type: number
+#     sql: DATEDIFF(day,current_date, ${birth_date}) ;;
+#   }
+#   dimension: height_is_higher_than_175 {
+#     type: yesno
+#     sql: ${height} > 175 ;;
+#   }

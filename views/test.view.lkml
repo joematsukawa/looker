@@ -1,5 +1,6 @@
 view: test1 {
   sql_table_name: "TRAINING_SOCCER"."COUNTRIES" ;;
+  drill_fields: [id]
 
   dimension: id {
     primary_key: yes

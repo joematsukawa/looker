@@ -64,7 +64,7 @@ view: players {
     drill_fields: [id, position,name, goals.count]
   }
   measure: count_age {
-    type: count
-    drill_fields: [age]
+    type: count_distinct
+    sql: ${age} ;;
     }
 }

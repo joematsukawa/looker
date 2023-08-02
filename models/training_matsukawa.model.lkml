@@ -47,9 +47,9 @@ explore: goals {
     relationship: many_to_one
   }
 
-  join: pairings {
-    type: left_outer
-    sql_on: ${goals.pairing_id} = ${pairings.id} ;;
-    relationship: many_to_one
-  }
+  # join: pairings {
+  #   type: left_outer
+  #   sql_on: ${goals.pairing_id} = ${pairings.id} ;;
+  #   relationship: many_to_one
+  # }
 }

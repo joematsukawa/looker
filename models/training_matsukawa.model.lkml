@@ -41,7 +41,7 @@ explore: view_explanation {}
 explore: view_explanation2 {}
 
 explore: goals {
-  always_join: [players]
+  # always_join: [players]
 
   join: players {
     type: inner

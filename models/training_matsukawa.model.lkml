@@ -40,18 +40,23 @@ explore: view_explanation {}
 
 explore: view_explanation2 {}
 
-# explore: goals {
-  # always_join: [players]
+explore: goals_inner {
+  from:  goals
 
-  # join: players {
-  #   type: inner
-  #   sql_on: ${goals.player_id} = ${players.id} ;;
-  #   relationship: many_to_one
-  # }
+  join: players {
+    type: inner
+    sql_on: ${goals_inner.player_id} = ${players.id} ;;
+    relationship: many_to_one
+  }
+}
 
-  # join: pairings {
-  #   type: left_outer
-  #   sql_on: ${goals.pairing_id} = ${pairings.id} ;;
-  #   relationship: many_to_one
-  # }
-# }
+explore: goals_always_inner {
+  from:  goals
+  always_join: [players]
+
+  join: players {
+    type: inner
+    sql_on: ${goals_always_inner.player_id} = ${players.id} ;;
+    relationship: many_to_one
+  }
+}
